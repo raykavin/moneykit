@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	currency "github.com/raykavin/currency"
+	currency "github.com/raykavin/moneykit"
 )
 
 func ExampleMoney() {

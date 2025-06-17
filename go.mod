@@ -1,4 +1,4 @@
-module github.com/raykavin/currency
+module github.com/raykavin/moneykit
 
 go 1.24.3
 
