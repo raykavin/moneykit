@@ -1,8 +1,8 @@
 # MoneyKit
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/raykavin/currency.svg)](https://pkg.go.dev/github.com/raykavin/currency)
-[![Go Report Card](https://goreportcard.com/badge/github.com/raykavin/currency)](https://goreportcard.com/report/github.com/raykavin/currency)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Go Reference](https://pkg.go.dev/badge/github.com/raykavin/moneykit.svg)](https://pkg.go.dev/github.com/raykavin/moneykit)
+[![Go Report Card](https://goreportcard.com/badge/github.com/raykavin/moneykit)](https://goreportcard.com/report/github.com/raykavin/moneykit)
+[![License](https://img.shields.io/badge/license-GPL-blue.svg)](LICENSE)
 
 MoneyKit is a comprehensive Go library for handling monetary values with precision. It provides safe arithmetic operations, currency support, formatting, and database integration while avoiding floating-point precision issues.
 
@@ -20,7 +20,7 @@ MoneyKit is a comprehensive Go library for handling monetary values with precisi
 ## Installation
 
 ```bash
-go get github.com/raykavin/currency
+go get github.com/raykavin/moneykit
 ```
 
 ## Quick Start
@@ -32,7 +32,7 @@ import (
     "fmt"
     "log"
     
-    "github.com/raykavin/currency"
+    "github.com/raykavin/moneykit"
 )
 
 func main() {
