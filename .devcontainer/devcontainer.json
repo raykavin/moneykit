@@ -1,0 +1,45 @@
+{
+    "name": "Money DevContainer (Golang)",
+    "workspaceFolder": "/workspaces/app",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "forwardPorts": [
+        3000
+    ],
+    "runArgs": [
+        "--network=host"
+    ],
+    "remoteUser": "vscode",
+    "postCreateCommand": "go mod tidy && git config --global --add safe.directory /workspaces/app",
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {}
+    },
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspaces/app,type=bind,consistency=cached"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "golang.Go",
+                "golang.go-nightly",
+                "liuchao.go-struct-tag",
+                "yokoe.vscode-postfix-go",
+                "ms-ceintl.vscode-language-pack-pt-br",
+                "streetsidesoftware.code-spell-checker",
+                "streetsidesoftware.code-spell-checker-portuguese-brazilian",
+                "visualstudioexptteam.vscodeintellicode",
+                "redhat.vscode-yaml",
+                "teddyandturtle.fish"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "fish",
+                "go.toolsManagement.checkForUpdates": "local",
+                "go.useLanguageServer": true,
+                "go.gopath": "/go",
+                "go.goroot": "/usr/local/go"
+            }
+        }
+    }
+}
