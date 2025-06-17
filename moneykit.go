@@ -79,7 +79,7 @@ var (
 	//
 	// Example:
 	//	moneykit.MarshalJSON = func(m moneykit.Money) ([]byte, error) {
-	//		return json.Marshal(map[string]interface{}{
+	//		return json.Marshal(map[string]any{
 	//			"value":    m.AsMajorUnits(),
 	//			"currency": m.Currency().Code,
 	//		})
@@ -96,7 +96,7 @@ var (
 )
 
 func defaultUnmarshalJSON(m *Money, b []byte) error {
-	data := make(map[string]interface{})
+	data := make(map[string]any)
 	err := json.Unmarshal(b, &data)
 	if err != nil {
 		return err
@@ -357,6 +357,14 @@ func (m *Money) Absolute() *Money {
 //	negative := positive.Negative()
 //	fmt.Println(negative.Display()) // -$5.00
 func (m *Money) Negative() *Money {
+	if m.amount == 0 {
+		return &Money{amount: 0, currency: m.currency}
+	}
+
+	if m.amount < 0 {
+		return m
+	}
+
 	return &Money{amount: mutate.calc.negative(m.amount), currency: m.currency}
 }
 

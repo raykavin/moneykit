@@ -46,7 +46,7 @@ func (m *Money) Value() (driver.Value, error) {
 //
 //	var money moneykit.Money
 //	err := money.Scan("2550|USD") // Creates $25.50
-func (m *Money) Scan(src interface{}) error {
+func (m *Money) Scan(src any) error {
 	var amount Amount
 	currency := &Currency{}
 
@@ -86,7 +86,7 @@ func (c Currency) Value() (driver.Value, error) {
 }
 
 // Scan implements sql.Scanner to deserialize a Currency from a string value read from a database
-func (c *Currency) Scan(src interface{}) error {
+func (c *Currency) Scan(src any) error {
 	var val *Currency
 	// let's support string only
 	switch s := src.(type) {

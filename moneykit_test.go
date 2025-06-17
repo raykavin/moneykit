@@ -935,7 +935,7 @@ func TestCustomUnmarshal(t *testing.T) {
 	given := `{"amount": 10012, "currency_code":"USD", "currency_fraction":2}`
 	expected := "$100.12"
 	UnmarshalJSON = func(m *Money, b []byte) error {
-		data := make(map[string]interface{})
+		data := make(map[string]any)
 		err := json.Unmarshal(b, &data)
 		if err != nil {
 			return err

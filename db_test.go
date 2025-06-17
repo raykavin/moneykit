@@ -40,7 +40,7 @@ func TestMoney_Value(t *testing.T) {
 
 func TestMoney_Scan(t *testing.T) {
 	tests := []struct {
-		src       interface{}
+		src       any
 		separator string
 		want      *Money
 		wantErr   bool
@@ -128,7 +128,7 @@ func TestCurrency_Value(t *testing.T) {
 func TestCurrency_Scan(t *testing.T) {
 	for code, want := range currencies {
 		t.Run(code, func(t *testing.T) {
-			src := interface{}(code)
+			src := any(code)
 
 			got := &Currency{}
 			err := got.Scan(src)

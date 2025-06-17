@@ -334,7 +334,7 @@ err = json.Unmarshal(data, &loaded)
 ```go
 // Override marshaling behavior
 moneykit.MarshalJSON = func(m moneykit.Money) ([]byte, error) {
-    return json.Marshal(map[string]interface{}{
+    return json.Marshal(map[string]any{
         "value":    m.AsMajorUnits(),
         "currency": m.Currency().Code,
     })
