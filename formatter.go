@@ -11,7 +11,7 @@ import (
 type Formatter struct {
 	Fraction int    // Number of decimal places
 	Decimal  string // Decimal separator
-	Thousand string // Thousands separator  
+	Thousand string // Thousands separator
 	Grapheme string // Currency symbol
 	Template string // Formatting template
 }

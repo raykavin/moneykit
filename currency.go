@@ -33,7 +33,6 @@ type Currency struct {
 	Thousand    string
 }
 
-
 // Currencies is a map of currency codes to Currency instances.
 // It provides methods to look up currencies by code or numeric code.
 type Currencies map[string]*Currency
@@ -281,10 +280,10 @@ var currencies = Currencies{
 //	btc := moneykit.AddCurrency("BTC", "₿", "₿1", ".", ",", 8)
 //	bitcoin := moneykit.New(100000000, "BTC") // 1.00000000 BTC
 //	fmt.Println(bitcoin.Display()) // ₿1.00000000
-func AddCurrency(code, Grapheme, Template, Decimal, Thousand string, Fraction int) *Currency {
+func AddCurrency(code, grapheme, Template, Decimal, Thousand string, Fraction int) *Currency {
 	c := Currency{
 		Code:     code,
-		Grapheme: Grapheme,
+		Grapheme: grapheme,
 		Template: Template,
 		Decimal:  Decimal,
 		Thousand: Thousand,
