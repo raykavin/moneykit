@@ -142,6 +142,13 @@ linters:
         - require-error
         - float-compare
         - len # We deliberately use Equal over Len to avoid spamming the contents of large Slices
+    depguard:
+      rules:
+        Main:
+          deny:
+            - github.com/stretchr/testify/assert
+          except-files:
+            - "*_test.go"
   exclusions:
     generated: lax
     presets:
