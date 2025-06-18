@@ -280,14 +280,14 @@ var currencies = Currencies{
 //	btc := moneykit.AddCurrency("BTC", "₿", "₿1", ".", ",", 8)
 //	bitcoin := moneykit.New(100000000, "BTC") // 1.00000000 BTC
 //	fmt.Println(bitcoin.Display()) // ₿1.00000000
-func AddCurrency(code, grapheme, Template, Decimal, Thousand string, Fraction int) *Currency {
+func AddCurrency(code, grapheme, template, decimal, thousand string, fraction int) *Currency {
 	c := Currency{
 		Code:     code,
 		Grapheme: grapheme,
-		Template: Template,
-		Decimal:  Decimal,
-		Thousand: Thousand,
-		Fraction: Fraction,
+		Template: template,
+		Decimal:  decimal,
+		Thousand: thousand,
+		Fraction: fraction,
 	}
 	currencies.Add(&c)
 	return &c
