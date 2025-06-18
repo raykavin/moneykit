@@ -1,9 +1,9 @@
 # MoneyKit
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/raykavin/moneykit.svg)](https://pkg.go.dev/github.com/raykavin/moneykit)
+[![Go Version](https://img.shields.io/badge/go-1.24.3-blue)](https://golang.org/dl/)
 [![Lint](https://github.com/raykavin/moneykit/actions/workflows/lint.yml/badge.svg)](https://github.com/raykavin/moneykit/actions/workflows/lint.yml)
 [![Build](https://github.com/raykavin/moneykit/actions/workflows/build.yml/badge.svg)](https://github.com/raykavin/moneykit/actions/workflows/build.yml)
-[![Go Version](https://img.shields.io/badge/go-1.24.3-blue)](https://golang.org/dl/)
 [![Go Report Card](https://goreportcard.com/badge/github.com/raykavin/moneykit)](https://goreportcard.com/report/github.com/raykavin/moneykit)
 [![License](https://img.shields.io/badge/license-GPL-blue.svg)](LICENSE)
 
