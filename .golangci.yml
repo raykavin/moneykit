@@ -145,10 +145,22 @@ linters:
     depguard:
       rules:
         Main:
-          deny:
-            - github.com/stretchr/testify/assert
-          except-files:
-            - "*_test.go"
+          files:
+          - $all
+          - "!$test"
+          # allow:
+          # - $gostd
+          # deny:
+          #   reflect: Please don't use reflect package
+        Test:
+          files:
+          - $test
+          allow:
+          - $gostd
+          - github.com/stretchr/testify
+          # deny:
+          #   reflect: Please don't use reflect package
+
   exclusions:
     generated: lax
     presets:
