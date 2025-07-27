@@ -32,8 +32,13 @@ var (
 //
 //	money := moneykit.New(2550, "USD")
 //	value, err := money.Value() // "2550|USD"
-func (m *Money) Value() (driver.Value, error) {
-	return fmt.Sprintf("%d%s%s", m.amount, DBMoneyValueSeparator, m.Currency().Code), nil
+func (m Money) Value() (driver.Value, error) {
+	code := USD
+	if m.Currency() != nil {
+		code = m.Currency().Code
+	}
+
+	return fmt.Sprintf("%d%s%s", m.amount, DBMoneyValueSeparator, code), nil
 }
 
 // Scan implements sql.Scanner interface to deserialize Money from database storage.
