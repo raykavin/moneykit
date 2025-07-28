@@ -50,11 +50,10 @@
 package moneykit
 
 import (
-	"bytes"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"math"
+	"strings"
 )
 
 // Injection points for backward compatibility.
@@ -134,8 +133,21 @@ func defaultMarshalJSON(m Money) ([]byte, error) {
 		m = *New(0, "")
 	}
 
-	buff := bytes.NewBufferString(fmt.Sprintf(`{"amount": %d, "currency": "%s"}`, m.Amount(), m.Currency().Code))
-	return buff.Bytes(), nil
+	currency := m.Currency()
+
+	formatter := currency.Formatter()
+	formattedValue := formatter.Format(m.Amount())
+	formattedValue = strings.Replace(formattedValue, currency.Grapheme, "", 1)
+	formattedValue = strings.TrimSpace(formattedValue)
+
+	data := map[string]any{
+		"amount":    m.Amount(),
+		"currency":  currency.Code,
+		"symbol":    currency.Grapheme,
+		"formatted": formattedValue,
+	}
+
+	return json.Marshal(data)
 }
 
 // Amount represents a monetary amount as an integer in the currency's smallest unit.
